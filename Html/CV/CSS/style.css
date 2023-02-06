@@ -1,0 +1,85 @@
+body{
+    background-image: url("../images/sussy_wallpaper.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+/* flex till kanpparna över hemsidan */
+#flex_container{
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+/* positioneringen av knapparna */
+#flex_container div {
+    border-radius: 10px;
+    background-color: darkgreen;
+    width: 290px;
+    height: 100px;
+    top: -3px;
+    margin-right: 14px;
+    text-align: center;
+
+}
+/* tar bort understrecken på texten på kanpparna */
+#flex_container a{
+    color: black; 
+    text-decoration: none;
+
+}
+
+/* class för alla paragrafer */
+.text{
+    color: white;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 45px;
+}
+
+/* positinen för youtube bilden  */
+#image_youtube_link{
+    position: absolute;
+    width: 900px;
+    height: 500px;
+    left: 300px;
+    top: 200px;
+
+}
+
+/* positinen för instrument bilden  */
+.instrument_image{
+    position: absolute;
+    margin-right: 41px;
+    margin-left: 59px;
+    bottom: 1px;
+    width: 1400px;
+    height: 400px;
+}
+
+/* positionen och stilen för bilden av mig */
+.main_image{
+    position: absolute;
+    width: 550px;
+    height: 570px;
+    left: 98px;
+    top: 160px;
+    border-radius: 365px;
+}
+
+/* positionen på bilden av robochallenge */
+.work_image{
+    position: absolute;
+    width: 900px;
+    height: 550px;
+    left: 600px;
+    top: 170px;
+}
+
+/* border för formuläret och tabellen */
+.the_border{
+    border: 2px solid darkgreen;
+    border-radius: 5px;
+}

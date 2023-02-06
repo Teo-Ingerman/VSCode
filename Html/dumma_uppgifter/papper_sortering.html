@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form Using Table in HTML</title>
+    <link rel="stylesheet" href="ParsonForm3.css">
+</head>
+<body>
+    <h2>Student Registration Form Using Table in HTML</h2>
+        <form>
+        <table align="center" cellpadding="10">
+            <tr>
+                <td>Gender</td>
+                <td>
+                    <input type="radio" name="Gender" value="Male"/>
+                    Male
+                    <input type="radio" name="Gender" value="Female">
+                    Female
+                </td>
+            </tr>
+            <tr>
+                <td>First name</td>
+                <td><input type="text" name="firstname" maxlength="50" placeholder="Maryam/">
+                </td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input type="text" name="LastName" maxlength="50" placeholder="Rezaee"/>
+                    (Max 50 Characters Allowed)
+                </td>
+            </tr>
+            <tr>
+                <td>Country</td>
+                <td><input type="text" name="Country" placeholder="Sweden" /></td>
+            </tr>
+            <tr>
+                <td>Adress<br /><br /><br /></td>
+                <td><textarea name="Address" rows="10" cols="50"></textarea></td>
+            </tr>
+            <!-----------------------------City------------------------------------------->
+            <tr>
+                <td>Mobile Number</td>
+                <td>
+                    <input type="text" name="MobileNumber" maxlength="10" placeholder="012345678" />
+                    (10 Digits Allowed)
+                </td>
+            </tr>
+            <tr>
+                <td>Email ID</td>
+                <td><input type="email" name="EmailID" maxlength="100" placeholder="maryam@yahoo.com"
+/></td>
+            </tr>
+            <tr>
+                <td>Pin Code</td>
+                <td><input type="Number" name="PinCode" maxlength="6" placeholder="123456"></td>
+                    (Max 6 Numbers Allowed)
+            </tr>
+            <tr>
+                <td>Hobbies <br /><br /><br /></td>
+                <td>
+                    <input type="checkbox" name="HobbyDrawing" value="Drawing">
+                    Drawing
+                    <input type="checkbox" name="HobbySinging" value="Singing">
+                    Singing
+                    <input type="checkbox" name="HobbyDancing" value="Dancing">
+                    Dancing
+                    <input type="checkbox" name="HobbyCooking" value="Sketching">
+                    Sketching
+                    <br />
+                    <input type="checkbox" name="HobbyOther" value="Other">
+                    Others
+                    <input type="text" name="Other_Hobby" maxlength="50" placeholder="Ex- Carpentry" />
+                    (Max 50 Characters Allowed)
+                </td>
+            </tr>
+            <tr>
+                <td>Qualification <br /><br /><br /></td>
+                <td>
+                    <input type="checkbox" name="HighSchool" value="High School">
+                    High School(10th)<br>
+                    <input type="checkbox" name="HigherSchool" value="Higher School">
+                    Higher School(12th)<br />
+                    <input type="checkbox" name="Graduation" value="Graduation">
+                    Graduation(Bachelors)<br />
+                    <input type="checkbox" name="PostGraduation" value="Post Graduation">
+                    Post Graduation(Masters)<br />
+                    <input type="checkbox" name="Phd" value="Phd">
+                    Phd
+                </td>
+            </tr>
+            <tr>
+                <td>Courses<br />Applied For</td>
+                <td>
+                    <input type="radio" name="Course" value="BCA">
+                    BCA(Bachelor of Computer Applications)<br>
+                    <input type="radio" name="Course" value="B.Com">
+                    B.com(Bachelor of Commerce)<br>
+                    <input type="radio" name="Course" value="B.Sc">
+                    B.Sc(Bachelor of Science)<br>
+                    <input type="radio" name="Course" value="B.A">
+                    BA(Bachelor of Arts)<br>
+                    <input type="radio" name="Course" value="BCA">
+                    MCA(Master of Computer Applications)<br>
+                    <input type="radio" name="Course" value="B.Com">
+                    M.Com(Master of Commerce)<br>
+                    <input type="radio" name="Course" value="B.Sc">
+                    M.Sc(Master of Science)<br>
+                    <input type="radio" name="Course" value="B.A">
+                    MA(Master of Arts)<br>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Reset">
+                </td>
+            </tr>
+            </form>
+        </table>
+</body>
+</html>

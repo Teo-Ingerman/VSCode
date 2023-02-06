@@ -1,0 +1,14 @@
+body{
+    background-image: url("background.png");
+    display: inline;
+}
+
+#big_image{
+    display: inline-block;
+    height: 600px;
+    width: 1000px;
+}
+
+.wait {
+    cursor: wait;
+}

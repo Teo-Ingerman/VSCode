@@ -1,0 +1,46 @@
+body{
+    background-color: aqua;
+}
+
+.wait {
+    cursor: wait;
+}
+
+.no-drop {
+    cursor: no-drop;
+}
+
+.none{
+    cursor: none;
+}
+
+.flex-container{
+    background-color: blue;
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    height: 200px;
+    align-items: baseline;
+}
+
+.flex-container > div{
+    width: min-content;
+    height: min-content;
+    background-color: darkred;
+    margin-top: 50px;
+    margin-left: 10px;
+    padding: 1%;
+}
+
+#pink_box{
+    background-color: pink;
+    border: 3px darkred solid;
+    padding-top: 0%;
+    padding-bottom: 10%;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+#the_list{
+    padding: 3%;
+}

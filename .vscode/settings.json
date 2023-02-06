@@ -1,0 +1,9 @@
+{
+    "powermode.presets": "particles",
+    "powermode.enabled": true,
+    "powermode.shake.enabled": false,
+    "powermode.combo.location": "statusbar",
+    "powermode.explosions.enabled": true,
+    "python.analysis.typeCheckingMode": "off",
+    "powermode.combo.threshold": 100
+}
