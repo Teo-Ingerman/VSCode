@@ -1,6 +1,11 @@
-function personal_greeting(name)
+let globalnumb = 10
+console.log(localnumb)
+console.log(globalnumb)
+function multiplybytwo(argument)
 {
-return (`what's up ${name}`)
+    let localnumb = argument*2
+    return localnumb
 }
 
-window.alert(personal_greeting("bob"))
+console.log(localnumb)
+console.log(globalnumb)
