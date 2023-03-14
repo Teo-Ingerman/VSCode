@@ -7,7 +7,7 @@ import time, ctypes, random
 def getHex(rgb):
     return "%02X%02X%02X"%rgb
 
-def checkColor(pos):
+def check_color(pos):
 
     x,y = pos
     # bbox = (x,y,x+1,y+1)
@@ -16,7 +16,12 @@ def checkColor(pos):
     # r,g,b = rgbim.getpixel((0,0))
     r, g, b = pyautogui.pixel(x, y)
     return getHex((r,g,b))
-    
+
+time.sleep(2)
+print(check_color((672, 347)))
+
+quit()
+
 def get_total_grid(start_square):
     #skapar en grid för alla fyrkanter som går att klicka på
     all_positions = []
@@ -61,7 +66,7 @@ def check_bombs(grid, number):
     
     posistions = []
     for i in grid:
-        color = checkColor(i)
+        color = check_color(i)
         
         #oklickade fyrkanter
         if color == "AAD751" or color == "A2D149":
@@ -106,7 +111,7 @@ if __name__ == "__main__":
             if keyboard.is_pressed('q'):
                 running = False
                 break
-            color = checkColor(i)
+            color = check_color(i)
             
             if flags_placed == 99:
                 for i in grid_positions:
@@ -275,6 +280,6 @@ if __name__ == "__main__":
                 counter = 0
             
             
-            # pyautogui.moveTo(i)
+            pyautogui.moveTo(i)
             # time.sleep(1)
         

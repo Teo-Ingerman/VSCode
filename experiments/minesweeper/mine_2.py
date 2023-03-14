@@ -15,14 +15,14 @@ def get_total_grid(start_square):
     #skapar en grid för alla fyrkanter som går att klicka på
     all_positions = []
     x, y = start_square
-    for width in range(20):
+    for height in range(20):
         
         x = start_square[0]
-        if width > 0:
+        if height > 0:
             #pixellängd av en fyrkant
             y += 25
-        for length in range(24):
-            if length > 0:
+        for width in range(24):
+            if width > 0:
                 x += 25
             all_positions.append((x,y))
     
@@ -142,7 +142,7 @@ if __name__ == "__main__":
     grid_positions = get_total_grid(first_square)
     
     pyautogui.moveTo(random.choice(grid_positions))
-    pyautogui.click()
+    #pyautogui.click()
     pyautogui.moveTo(300, 400)
     
     running = True
@@ -222,6 +222,7 @@ if __name__ == "__main__":
             if color == "AAD751" or color == "A2D149":
                 print("green")
 
+            pyautogui.moveTo()
       
       #more advanced check
         if not True:
