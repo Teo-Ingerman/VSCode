@@ -3,10 +3,8 @@ if __name__ != "__main__":
     quit()
 
 
-
 import pygame, ctypes, os
 import pygame_functions as pyf
-
 
 
 pygame.init()

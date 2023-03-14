@@ -1,16 +1,8 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿
+Console.Write("What's your name? ");
 
-using System;
+string name = Console.ReadLine();
 
-class Program
-{
-    static void Main()
-    {
-        
-        Winner writer = new Winner();
+Console.WriteLine("Username is: " + name);
 
-        writer.print("hello");
-
-    }
-}
 
