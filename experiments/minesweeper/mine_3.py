@@ -1,6 +1,6 @@
 from PIL import Image
 import pyautogui, time
-import pynput
+import pynput, keyboard
 
 
 
@@ -27,6 +27,7 @@ def get_pixel_colors(positions):
     
     color_map = {
     "1976D2": 1,
+    "1B77D1": 1,
     "C9B491": 2,
     "D6BD96": 2,
     "D6B898": 2,
@@ -43,10 +44,15 @@ def get_pixel_colors(positions):
     "0097A7": 6,
     "E74E12": "flag",
     "E64D11": "flag",
+    "EA5019": "flag",
+    "E74A0F": "flag",
     "E5C29F": "empty",
     "D7B899": "empty",
     "AAD751": "unknown",
-    "A2D149": "unknown"
+    "A2D149": "unknown",
+    "AAD651": "unknown",
+    "A6CF4E": "unknown",
+    "A2D049": "unknown"
     }
     
     # Take a screenshot of the current screen
@@ -112,7 +118,7 @@ def check_surrounding_pixels(position, all_squares):
             all_squares[(x, y+spacing)], # bottom
             all_squares[(x+spacing, y+spacing)] # bottom right
         ]
-        
+        #print(surrounding_colors)
         
         unknown_list = []
         flag_list = []
@@ -125,7 +131,7 @@ def check_surrounding_pixels(position, all_squares):
             elif color == "flag":
                 flag_list.append(surrounding_pixels[i])
         
-        if len(flag_list) == square_value and len(unknown_list) != 0:
+        if len(flag_list) == square_value and len(unknown_list) > 0:
             pyautogui.moveTo(position)
             mouse = pynput.mouse.Controller()
 
@@ -134,19 +140,22 @@ def check_surrounding_pixels(position, all_squares):
             mouse.press(pynput.mouse.Button.right)
             mouse.release(pynput.mouse.Button.left)
             mouse.release(pynput.mouse.Button.right)
-
-    
-
-yes = {
-    "no": 1,
-    "yes":2
-    
-}
-
-for x in yes:
-    print(x)
-    print(yes[x])
-
+            pyautogui.moveTo((300, 400))
+            time.sleep(1)
+            return True
+        
+        
+        if square_value - len(flag_list) - len(unknown_list) == 0 and len(unknown_list) > 0:
+            # print(surrounding_colors)
+            # print(square_value - len(flag_list) - len(unknown_list))
+            # pyautogui.moveTo(position)
+            # quit()
+            
+            for pos in unknown_list:
+                pyautogui.rightClick(pos)
+                pyautogui.moveTo((300, 400))
+                time.sleep(1)
+        
 
 """ time.sleep(2)
 
@@ -156,8 +165,20 @@ print(get_pixel_colors(positions))
  """
  
 while True:
+    if keyboard.is_pressed("q"):
+        quit()
     grid = get_total_grid((672, 347))
     
+    items_to_remove = []
+    
     color_grid = get_pixel_colors(grid)
+    #print(color_grid)
     for pos in color_grid:
-        check_surrounding_pixels(pos, color_grid)
+        if keyboard.is_pressed("q"):
+            quit()
+        if check_surrounding_pixels(pos, color_grid):
+            items_to_remove.append(pos)
+    for items in items_to_remove:
+        color_grid.pop(items)
+    #print(color_grid)
+    
