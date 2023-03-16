@@ -1,8 +1,8 @@
 ﻿
 Console.Write("What's your name? ");
 
-string name = Console.ReadLine();
+// string name = Console.ReadLine();
 
-Console.WriteLine("Username is: " + name);
+// Console.WriteLine("Username is: " + name);
 
 
