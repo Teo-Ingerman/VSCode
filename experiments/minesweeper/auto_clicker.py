@@ -1,8 +1,18 @@
-import pyautogui, keyboard
+import pyautogui, keyboard, pynput
 
+mouse = pynput.mouse.Controller()
+
+                # Click both left and right mouse buttons simultaneously
+mouse.press(pynput.mouse.Button.left)
+
+mouse.release(pynput.mouse.Button.left)
 
 
 while True:
     if keyboard.is_pressed("l"):
         break
-    pyautogui.click()
+    #pyautogui.click()
+    
+    mouse.press(pynput.mouse.Button.left)
+
+    mouse.release(pynput.mouse.Button.left)

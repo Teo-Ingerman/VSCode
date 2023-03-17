@@ -1,6 +1,6 @@
 import pyautogui
 
-pos = (911, 670)
+pos = (847,671)
 
 pyautogui.moveTo(pos)
 

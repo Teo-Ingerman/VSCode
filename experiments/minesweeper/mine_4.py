@@ -201,6 +201,7 @@ while True:
         "119AA7": 6,
         "0097A7": 6,
         "AB957F": 7,
+        "B59C83": 7,
         "E74E12": "flag",
         "E64D11": "flag",
         "EA5019": "flag",
@@ -238,7 +239,7 @@ while True:
                     right_click.append(pos)
             
             right_click = list(set(right_click))
-            
+            random.shuffle(left_click)
             
             for pos in left_click:
                 
@@ -277,18 +278,18 @@ while True:
             
       
         pyautogui.moveTo((300, 400))
-        time.sleep(1)
+        time.sleep(0.5)
 
     pyautogui.moveTo((300, 400))
-    """ rgb = pyautogui.pixel(911, 670)
+    rgb = pyautogui.pixel(847,671)
     hex_color = "%02X%02X%02X"%rgb
     #print(hex_color)    
     if hex_color == "4A752C":
         print("Hello")
-        pyautogui.click(911, 670)
+        pyautogui.click(847,671)
         pyautogui.moveTo(300, 400)
-        time.sleep(1) """
-    keyboard.press("space")
+        time.sleep(1)
+    #keyboard.press("space")
     running = True
     
 
