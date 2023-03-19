@@ -239,16 +239,23 @@ def check_surrounding_pixels(position, all_squares):
         
         if square_value == 1:
             
-            surrounding_pixels = [
-            (x-spacing, y-spacing), # top left
-            (x, y-spacing), # top
-            (x+spacing, y-spacing), # top right
-            (x-spacing, y), # left
-            (x+spacing, y), # right
-            (x-spacing, y+spacing), # bottom left
-            (x, y+spacing), # bottom
-            (x+spacing, y+spacing) # bottom right
-        ]
+            
+            """ top_row_pos = [
+                (x-spacing, y-spacing), # top left
+                (x, y-spacing), # top
+                (x+spacing, y-spacing), # top right
+            ]
+            
+            middle_row_pos = [
+                (x-spacing, y), # left
+                (x+spacing, y), # right
+            ]
+            
+            bottom_row_color = [
+                (x-spacing, y+spacing), # bottom left
+                (x, y+spacing), # bottom
+                (x+spacing, y+spacing) # bottom right
+            ]
             
             top_row_color = [all_squares[(x-spacing, y-spacing)], # top left
                 all_squares[(x, y-spacing)], # top
@@ -266,7 +273,26 @@ def check_surrounding_pixels(position, all_squares):
                 all_squares[(x+spacing, y+spacing)] # bottom right
             ]
 
+            for color in top_row_color:
+                if color == "outside":
+                    top += 1
                 
+                if color == "flag":
+                    flags = True
+            
+            for color in bottom_row_color:
+                if color == "outside":
+                    bottom += 1
+                
+                if color == "flag":
+                    flags = True
+            
+            for color in middle_row_color:
+                if color == 1:
+                    middle += 1
+                
+                if color == "flag":
+                    flags = True     """
         
         
         
