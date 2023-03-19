@@ -172,13 +172,111 @@ def check_surrounding_pixels(position, all_squares):
                     
                 #return True
         
+        if square_value == 2:
+            x, y = position
+            square_value = all_squares[position]
+            
+            spacing = 25
+
+            
+            top_row_color = [all_squares[(x-spacing, y-spacing)], # top left
+                all_squares[(x, y-spacing)], # top
+                all_squares[(x+spacing, y-spacing)], # top right
+                ]
+            
+            middle_row_color = [
+                all_squares[(x-spacing, y)], # left
+                all_squares[(x+spacing, y)], # right
+            ]
+            
+            bottom_row_color = [
+                all_squares[(x-spacing, y+spacing)], # bottom left
+                all_squares[(x, y+spacing)], # bottom
+                all_squares[(x+spacing, y+spacing)] # bottom right
+            ]
+            
+            flags = False
+            
+            top = 0
+            
+            middle = 0
+            
+            bottom = 1
+            
+            for color in top_row_color:
+                if color == "unknown":
+                    top += 1
+                
+                if color == "flag":
+                    flags = True
+            
+            for color in bottom_row_color:
+                if color == "unknown":
+                    bottom += 1
+                
+                if color == "flag":
+                    flags = True
+            
+            for color in middle_row_color:
+                if color == 1:
+                    middle += 1
+                
+                if color == "flag":
+                    flags = True
+            
+            if not flags:
+                
+                if middle == 2:
+                    
+                    if top == 3 and bottom == 0:
+                        pyautogui.click((x,y-spacing))
+                        print("1_2_1")
+
+                    if bottom == 3 and top == 0:
+                        pyautogui.click((x,y+spacing))
+                        print("1_2_1")
+        
+        
+        if square_value == 1:
+            
+            surrounding_pixels = [
+            (x-spacing, y-spacing), # top left
+            (x, y-spacing), # top
+            (x+spacing, y-spacing), # top right
+            (x-spacing, y), # left
+            (x+spacing, y), # right
+            (x-spacing, y+spacing), # bottom left
+            (x, y+spacing), # bottom
+            (x+spacing, y+spacing) # bottom right
+        ]
+            
+            top_row_color = [all_squares[(x-spacing, y-spacing)], # top left
+                all_squares[(x, y-spacing)], # top
+                all_squares[(x+spacing, y-spacing)], # top right
+                ]
+            
+            middle_row_color = [
+                all_squares[(x-spacing, y)], # left
+                all_squares[(x+spacing, y)], # right
+            ]
+            
+            bottom_row_color = [
+                all_squares[(x-spacing, y+spacing)], # bottom left
+                all_squares[(x, y+spacing)], # bottom
+                all_squares[(x+spacing, y+spacing)] # bottom right
+            ]
+
+                
+        
+        
+        
     return left_list, right_list
 
 counter = 0
 running = True
 
 while True:
-    print(running)
+
     while running:
         
         
@@ -242,7 +340,7 @@ while True:
             random.shuffle(left_click)
             
             for pos in left_click:
-                
+                #print("yes")
                 done_action = True
                 pyautogui.moveTo(pos)
                 mouse = pynput.mouse.Controller()
@@ -285,7 +383,7 @@ while True:
     hex_color = "%02X%02X%02X"%rgb
     #print(hex_color)    
     if hex_color == "4A752C":
-        print("Hello")
+        #print("Hello")
         pyautogui.click(847,671)
         pyautogui.moveTo(300, 400)
         time.sleep(1)

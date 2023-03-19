@@ -8,16 +8,34 @@
 </head>
 <body>
     
-    <form>
+    <form id="yes">
         <label for="hat">hat color:</label>
         <input type="text" id="hat" name="hat"><br>
         <label for="shoe">shoe color:</label>
         <input type="text" id="shoe" name="shoe"><br>
-        <input type="button" name="submit" id="submit">
+        <input type="submit" name="submit" id="submit">
         
     </form>
 
+    <script>
+        function lebu()
+        {
+        let x = document.getElementById("hat")
+        let y = document.getElementById("shoe")
 
+        if (x == "")
+        {
+            alert("fuckayou, yo ewerwe wrong. Try again loser");
+        }
+        else
+        {
+            alert("nice" + x);
+        }
+
+        }
+
+    lebu()
+    </script>
 
 </body>
 </html>

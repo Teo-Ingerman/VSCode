@@ -1,4 +1,8 @@
-import pyautogui, keyboard, pynput
+import pyautogui, keyboard, pynput, time
+
+
+time.sleep(10)
+
 
 mouse = pynput.mouse.Controller()
 

@@ -17,10 +17,7 @@ def check_color(pos):
     r, g, b = pyautogui.pixel(x, y)
     return getHex((r,g,b))
 
-time.sleep(2)
-print(check_color((672, 347)))
 
-quit()
 
 def get_total_grid(start_square):
     #skapar en grid för alla fyrkanter som går att klicka på
