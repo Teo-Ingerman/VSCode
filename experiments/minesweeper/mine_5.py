@@ -177,10 +177,22 @@ def check_surrounding_pixels(position, all_squares):
             elif color == "flag":
                 flag_list.append(surrounding_pixels[i])
         
+        for i, pos in enumerate(flag_list):
+            print(len(unknown_list))
+            for j, position in enumerate(unknown_list):
+                if position == pos:
+                    print("j")
+                    unknown_list.pop(j)
+
+        
+        
+        
         if len(flag_list) == square_value:
 
             left_list = unknown_list
-    print(left_list)
+            
+        
+    #print(left_list)
     return left_list
 
 

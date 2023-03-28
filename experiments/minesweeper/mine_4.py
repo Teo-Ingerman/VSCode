@@ -2,14 +2,21 @@ from PIL import Image
 import pyautogui, time, random
 import pynput, keyboard
 #import Among_Us as amogus
-
+import ctypes, tempfile
+ctypes.windll.user32.SetProcessDPIAware()
 
 
 
 def get_total_grid(start_square):
+    
+    
+
+    
+    
     #skapar en grid för alla fyrkanter som går att klicka på
     all_positions = []
     x, y = start_square
+    spacing = 25
     for height in range(20):
         
         x = start_square[0]
@@ -347,6 +354,7 @@ while True:
             quit()
             
         grid, outer_grid = get_total_grid((672, 347))
+        
         
         color_grid = get_pixel_colors(color_map, grid, outer_grid)
         if running:
