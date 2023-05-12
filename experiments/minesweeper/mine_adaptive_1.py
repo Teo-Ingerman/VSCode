@@ -1,7 +1,8 @@
 from PIL import Image
 import pyautogui, time, random
 import pynput, keyboard, os
-import ctypes, pickle, webbrowser
+import ctypes, json, webbrowser
+
 
 
 webbrowser.open("https://www.google.com/search?q=röj")
@@ -67,22 +68,30 @@ color_map = {
         "A6CF4E": "unknown",
         "A2D049": "unknown",
         "A4D34B": "unknown",
-        "A6D44D": "unknown"
+        "A6D44D": "unknown",
+        "A8D54F": "unknown",
         }
 
 # color_map = pickle.load(open("color_map.p", "rb"))
+def file_handling(file, action, data=None):
+    if action == "read":
+        
+        with open(file, "r") as file:
+            return json.load(file)
+
+            
+    if action == "write":   
+        with open(file, "w") as file:
+            json.dump(data, file)
+
+
 
 def hex_to_rgb(hex_color):
     hex_color = hex_color.lstrip('#')
     return tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
 
 # Function to check if a pixel is within the green range
-def is_green(pixel):
-    # Convert hex values to RGB format
-    green_min_rgb = hex_to_rgb(GREEN_MIN)
-    green_max_rgb = hex_to_rgb(GREEN_MAX)
-    # Check if the pixel's RGB values are within the green range
-    return all(green_min_rgb[i] <= pixel[i] <= green_max_rgb[i] for i in range(3))
+
 
 def get_color(pos, image):
     
@@ -90,6 +99,7 @@ def get_color(pos, image):
     where the first one is the top left corner and the second one is the bottom right corner
     image should be the image you want to get colors from
     """
+    #print(type(pos))
     if type(pos) == tuple:
         return "{:02x}{:02x}{:02x}".format(*image.getpixel(pos)).upper()
     else:
@@ -107,7 +117,10 @@ time.sleep(2)
 screenshot = pyautogui.screenshot()
     
 # Convert the screenshot to an image object
-img = Image.frombytes('RGB', screenshot.size, screenshot.tobytes())
+img = Image.frombytes('Hex', screenshot.size, screenshot.tobytes())
+
+print(get_color((0,0), img))
+
 
 #find top corner tile 
 
@@ -129,6 +142,9 @@ for x in range(screensize[0]):
     break
 
 
+print(set(get_color([(0, 0), (150, 0)], img)))
+
+quit()
 colorus = []
 
 for x in range(first_pixel[0], 1240):
@@ -145,16 +161,16 @@ color = list(set(colorus))
 # find middle of top corner tile
 x, y = first_pixel
 for i in range(100):
-    print(get_color((x+i,y), img))
+    # print(get_color((x+i,y), img))
     #print(i)
     if get_color((x+i,y), img) != top_square_color:
         
         square_size = i
-        print(get_color((x+i,y), img))
+        # print(get_color((x+i,y), img))
         break
-    pyautogui.moveTo(x+i, y)
-    pyautogui.moveTo(300, 400)
-    time.sleep(0.2)
+    # pyautogui.moveTo(x+i, y)
+    # pyautogui.moveTo(300, 400)
+    # time.sleep(0.2)
 
 print(square_size)
 
@@ -165,25 +181,33 @@ height = 0
 x, y = first_pixel
 
 
+
+
+#get length
 for i in range(30):
     print(get_color((x+i*square_size,y), img))
+    pyautogui.moveTo((x+i*square_size,y))
+    pyautogui.moveTo(300, 400)
+    time.sleep(0.2)
     try:
 
-        color_map[get_color((x+i*square_size,y), img)]
-        #print(color_map[get_color((x+i*square_size,y), img)])
+        #color_map[get_color((x+i*square_size,y), img)]
+        print(color_map[get_color((x+i*square_size,y), img)])
         pass
     except:
         print(i)
-        length = i - 1
+        length = i
+        pyautogui.moveTo(10, 10)
         break 
+    
         
-        
+#get height     
 for i in range(30):
     
     try:
         color_map[get_color((x,y+i*square_size), img)]
     except:
-        height = i - 1
+        height = i
         break
     
 
