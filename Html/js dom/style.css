@@ -7,7 +7,7 @@ body{
 
 
 
-#big_button{
+.big_button{
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -22,7 +22,12 @@ body{
     position: relative;
 }
 
-#main_knappar{
+.green_theme{
+    background-color: red;
+}
+
+
+#main_buttons{
 
     display: flex;
     flex-direction: row;
@@ -36,9 +41,18 @@ body{
 
 }
 
-#big_button:hover{
-    background-color: rgb(19, 18, 18);
-    color: white;
+.big_button:hover{
+    background-color: rgb(19, 18, 18) !important;;
+    color: white !important;;
     transition: 200ms;
     
+}
+
+#time{
+    color: white;
+    visibility: hidden;
+}
+
+.yes{
+    color: rgb(92, 64, 51);
 }
