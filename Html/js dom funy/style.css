@@ -7,6 +7,19 @@ body{
 
 
 
+#main_buttons{
+    display: flex;
+    flex-direction: row;
+    margin-top: 400px;
+    margin: auto;
+    -ms-transform: translateY(-40%);
+    transform: translateY(-40%);
+    margin: 0;
+    position: absolute;
+    top: 40%;
+}
+
+
 .big_button_black{
     background-color: white;
     color: black;
@@ -17,17 +30,16 @@ body{
     width: 55%;
     border: none;
     border-radius: 10%;
-    text-align: center;
-    align-content: center;
-    justify-content: center;
     position: relative;
 }
+
 
 .big_button_black:hover{
     background-color: rgb(19, 18, 18) !important;
     color: white !important;
     transition: 200ms;
 }
+
 
 .big_button_green{
     background-color: rgb(48, 213, 200);
@@ -39,17 +51,16 @@ body{
     width: 55%;
     border: none;
     border-radius: 10%;
-    text-align: center;
-    align-content: center;
-    justify-content: center;
     position: relative;
 }
+
 
 .big_button_green:hover{
     background-color: rgb(25, 99, 93) !important;
     color: rgb(43, 212, 43) !important;
     transition: 200ms;
 }
+
 
 .big_button_blue{
     background-color: yellow;
@@ -61,11 +72,9 @@ body{
     width: 55%;
     border: none;
     border-radius: 10%;
-    text-align: center;
-    align-content: center;
-    justify-content: center;
     position: relative;
 }
+
 
 .big_button_blue:hover{
     background-color: rgb(14, 14, 192) !important;
@@ -74,29 +83,25 @@ body{
 }
 
 
-
-
-#main_buttons{
-
-    display: flex;
-    flex-direction: row;
-    margin-top: 400px;
-    margin: auto;
-    -ms-transform: translateY(-40%);
-    transform: translateY(-40%);
-    margin: 0;
-    position: absolute;
-    top: 40%;
-
+#the_image{
+    width: 5dvi;
+    height: 5dvi;
 }
 
+
+#title{
+    color: white;
+}
 
 
 #time{
     color: white;
     visibility: hidden;
+    display: flex;
+    justify-content: center;
 }
 
-.yes{
-    color: rgb(92, 64, 51);
+
+#the_header{
+    background-color: none;
 }

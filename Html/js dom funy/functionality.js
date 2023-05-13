@@ -1,5 +1,9 @@
+
+
 // ändrar bakgrunden i början av programmet för att det ska kunna läsas av genom funktionen
 document.body.style.background = "black"; 
+
+
 
 setInterval(function(){
     // aktiverar funktionen time varje sekund
@@ -31,7 +35,7 @@ function change_bg(){
         elements = Array.from(document.getElementsByClassName("big_button_green"))
         document.getElementById("time").style.color = "yellow"
 
-        for (var i = 0; i < elements.length; i++) {
+        for (var i = 0; i < elements.length; i++){
             elements[i].className = "big_button_blue"
             
         }
@@ -43,7 +47,7 @@ function change_bg(){
         elements = Array.from(document.getElementsByClassName("big_button_black"))
         document.getElementById("time").style.color = "#30d5c8"
 
-        for (let i = 0; i < 9; i++) {
+        for (let i = 0; i < 9; i++){
             elements[i].className = "big_button_green"
         }
 
@@ -56,7 +60,7 @@ function change_bg(){
         elements = Array.from(document.getElementsByClassName("big_button_blue"))
         document.getElementById("time").style.color = "white"
 
-        for (var i = 0; i < elements.length; i++) {
+        for (var i = 0; i < elements.length; i++){
             elements[i].className = "big_button_black"
         }
     }
@@ -94,19 +98,35 @@ function time_button(){
 }
 
 function change_picture(){
+    // alla bilder har samma namn och en siffra för sitt index
+    // http://127.0.0.1:5500/Html/js%20dom%20funy/images/img4.png
+    images = ["img1.png", "img2.png", "img3.png", "img4.png", "img5.png", "img6.png", "img7.png", "img8.png", "img9.png"]
+    
+    active_image = document.getElementById("the_image").src
+    // tar bort extra text som hamnar framför bildens namn
+    active_image = active_image.slice(50)
+    index = images.indexOf(active_image)
+
+    images.splice(index, 1)
+    
+    random_index = Math.floor(Math.random() * 8);
+
+    new_image = images[random_index]
+    document.getElementById("the_image").src=`images/${new_image}`;
+
 
 }
 
 function hide_picture(){
-
+    document.getElementById("the_image").style.visibility = "hidden"
 }
 
 function show_picture(){
-
+    document.getElementById("the_image").style.visibility = "visible"
 }
 
 function header(){
-
+    other
 }
 
 function remove_header(){
